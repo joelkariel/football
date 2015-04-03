@@ -68,13 +68,13 @@ data<-data[order(data$tsr, decreasing=TRUE), ]
 
 #regress pts on tsr
 fit<-lm(data$pts~data$tsr)
-#retrieve r2
+#retrieve r2, a, b
 r2<-summary(fit)$r.squared
 a<-summary(fit)$coefficients[1,1]
 b<-summary(fit)$coefficients[2,1]
 
 #install ggplot2
-install.packages("ggplot2")
+#install.packages("ggplot2")
 library("ggplot2")
 
 #plot relationship

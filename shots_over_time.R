@@ -28,7 +28,8 @@ fn<-function(year,div){
       conv_rate<-sum_goals/sum_shots
     
     # Get table of shots by each team over each matchday
-    # install.packages("plyr")
+    #install.packages("plyr")
+    library("plyr")
       home_shots<-ddply(df, .(HomeTeam,AwayTeam,HS,AS,id), function(df)sum(df$HS+df$AS))
     # Subset to keep relevant columns
       home_shots<-home_shots[,c(1,3,5)]
@@ -80,10 +81,11 @@ fn<-function(year,div){
     # Plot the data
     x<-(ggplot(shots_by_matchday, aes(matchday, shots))
       + geom_line(aes(colour=team))
+      #+ facet_wrap(~team) # If I want a different graph for each team
       + geom_text(data = shots_by_matchday[shots_by_matchday$matchday == max(GP$games),], aes(label = team, colour=team))
       + theme(legend.position="none"))
     print(x)
   
 }
 
-fn(1415,"F1")
+fn(1314,"E0")

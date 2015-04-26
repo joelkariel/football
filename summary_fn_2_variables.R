@@ -70,5 +70,5 @@ fn<-function(year,div,metric1,metric2){
   print(graph)
 }
 
-fn(1314,"E0","Shots","Conversion Rate")
+fn(1415,"E0","PPG","Shots on Target")
 
